@@ -1,0 +1,37 @@
+1. Change its current slider https://gyazo.com/38f9d239e58cc63d314b6eb96517d68b
+to something similar to this static image full width: https://gyazo.com/2823e3fb7a2456065c27a1fc86d349bd
+
+2. This section https://gyazo.com/c9ab2623ec58b9bb126a2121443940ad
+can be improve a bit like this, so with a slight BG color. https://gyazo.com/94b10c53c99bed5a13c4864589b021c4
+
+3. Below that add a section like this: https://gyazo.com/edc087453642e0ea7d4ff86b63cefe71
+https://www.screencast.com/t/2MtCwpRZG
+Show packages here like this: https://www.screencast.com/t/lFUFh5ahhh
+My other developer can work on this functionality
+
+4. Below that add these 4 but please change their order and also change their blue color to something else. https://gyazo.com/371fee9820eb3801c2c4479493aa9b97
+
+5. Remove these 3 packages. https://gyazo.com/01845956662815a3a15804a934b842c0
+
+6. Update FAQs section content as per FAQs we've in the bottom of this page. https://tony444cc9.clickfunnels.com/optin1606109042746
+
+7. Replace our current footer to be like this, https://gyazo.com/788d4cc091483d8b339b15aec84d906d
+But remove this part on our site. https://gyazo.com/09c0f10e25c73aedbe5ee8c6278caa72
+
+8. All buttons on the home page will scroll the page to the 3 packages section
+
+9. Change logo in the header
+
+10. Use these product images where needed.
+https://www.dropbox.com/sh/640weqqk9ac3h4f/AADVUFR_jWszJ0imjugrNODva?dl=0
+
+11. Use this address and phone number on all pages in footer, and phone number needs to be updated in all places as well pls.
+https://gyazo.com/e77b5a885e748173035fc48c4537c40c
+
+12. Change all mentions of Adsiato to 'Baby Boomer Biotech'
+
+
+
+Ref sites:
+https://iuncode.com/sciencegenics/
+https://iuncode.com/sciencegenics/step1.php
