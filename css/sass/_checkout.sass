@@ -1,0 +1,244 @@
+.green-gradient
+  background: $light-green
+  background: -moz-linear-gradient(top, $light-green 0%, $dark-green 100%)
+  background: -webkit-linear-gradient(top, $light-green 0%,$dark-green 100%)
+  background: linear-gradient(to bottom, $light-green 0%,$dark-green 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6dd322', endColorstr='#183801',GradientType=0 )
+
+#checkout
+  #checkout-container
+    border-radius: 20px
+    background-color: #f7f0e0
+    box-shadow: 0 0 10px #cacaca
+    padding: 20px
+    margin: 40px 0
+    #checkout-steps
+      background-color: $secondary-color
+      border-radius: 50px
+      height: 50px
+      padding: 15px 0
+      position: relative
+      &:before
+        content: ""
+        background-color: white
+        height: 100%
+        width: 51%
+        position: absolute
+        top: 0
+        right: -2px
+        border-radius: 0 50px 50px 0
+        border: 2px solid $secondary-color
+      &:after
+        content: ""
+        width: 0px
+        height: 0px
+        border-top: 25px solid transparent
+        border-bottom: 25px solid transparent
+        border-left: 40px solid $secondary-color
+        position: absolute
+        top: 0
+        right: 520px
+        display: block
+    #order-counter
+      background-color: white
+      border-radius: 50px
+      min-height: 60px
+      text-align: center
+      margin: 30px 0
+      border: 1px solid #cacaca
+      h2
+        margin: 0
+        font-size: 28px
+        line-height: 55px
+        #counter
+          @extend .secondary-color2
+          font-size: 40px
+          vertical-align: sub
+    #great-job
+      font-size: 26px
+      overflow: hidden
+      >div
+        display: inline-block
+        float: left
+        &:first-child
+          width: 20%
+        &:last-child
+          width: 80%
+    #available-sell
+      background-color: white
+      border: 2px solid #cacaca
+      text-align: center
+      min-height: 50px
+      padding: 10px
+      font-size: 18px
+      margin: 20px 0
+      >div
+        display: inline-block
+        vertical-align: text-top
+      #sell-out
+        margin-left: 50px
+      #bar
+        width: 100px
+        height: 25px
+        border: 2px solid #cacaca
+        background-color: white
+        margin: 0 5px
+        #current-value
+          width: 20%
+          background-color: red
+          height: 100%
+          //height: 100%
+    #buttons-package
+      margin: 30px 0 0
+      overflow: hidden
+      h3,p
+        margin: 0
+      [class*="btn-package-"]
+        display: inline-block
+        padding: 10px
+        background-color: #55524a
+        color: white
+        border-radius: 3px
+        cursor: pointer
+        margin-right: 5px
+        &:last-of-type
+          margin-right: 0
+        &.active
+          background-color: $secondary-color
+    .template-1
+      &.product-preview
+        text-align: center
+        padding: 10px
+        border-top: 1px solid #cacaca
+        border-right: 1px solid #cacaca
+        border-left: 1px solid #cacaca
+        display: none
+        min-height: 340px
+      &.guarantee-2
+        padding: 10px 25px 20px
+        border-top: 1px solid lighten($secondary-color,50%)
+        border-right: 1px solid lighten($secondary-color,50%)
+        border-left: 1px solid lighten($secondary-color,50%)
+    #final-step
+      margin: 30px 0
+      border: 1px solid #cacaca
+      border-radius: 10px
+      #title-form
+        @extend .green-gradient
+        border-bottom: 3px solid $light-green
+        text-align: center
+        color: white
+        border-radius: 10px 10px 0 0
+        padding: 15px 0
+        h1
+          margin: 0
+          &:first-child
+            font-size: 40px
+          &:last-child
+            font-size: 22px
+      form
+        background-color: #fffbf2
+        padding: 20px 30px
+        border-radius: 0 0 10px 10px
+        input[type="text"],input[type="email"],select
+          padding: 5px 10px
+          border: 1px solid #cacaca
+          width: 100%
+          border-radius: 3px
+          &:focus
+            outline: 0
+            box-shadow: 0 0 5px #55524a
+          &::-webkit-input-placeholder
+            color: #aca298
+          &:-moz-placeholder
+            color: #aca298
+          &::-moz-placeholder
+            color: #aca298
+          &:-ms-input-placeholder
+            color: #aca298
+        select
+          color: #aca298
+        input[type="image"]
+          width: 100%
+        #Billing
+          margin: 0px 0 20px
+          input[type="checkbox"]
+            width: auto
+            position: relative
+            outline: 0
+            margin-right: 10px
+            &:before
+              content: ""
+              width: 15px
+              height: 15px
+              border: 1px solid black
+              display: block
+              background-color: white
+              cursor: pointer
+            &:checked:after
+              content: ""
+              position: absolute
+              left: 6px
+              display: table
+              top: 1px
+              width: 5px
+              height: 10px
+              border: 2px solid black
+              border-top-width: 0
+              border-left-width: 0
+              -webkit-transform: rotate(45deg)
+              -ms-transform: rotate(45deg)
+              -o-transform: rotate(45deg)
+              transform: rotate(45deg)
+              cursor: pointer
+          #Billing-cards
+            text-align: center
+            margin: 10px 0
+
+
+@media (max-width: 1024px)
+  #checkout
+    #checkout-container
+      #checkout-steps
+        &:after
+          display: none
+@media (max-width: 639px)
+  #checkout
+    h3
+      font-size: 20px
+    #checkout-container
+      #order-counter
+        h2
+          font-size: 18px
+      #great-job
+        font-size: 20px
+        >div
+          width: auto !important
+      #available-sell
+        font-size: 16px
+        #bar
+          width: 70px
+        #sell-out
+          margin-left: 0
+      #buttons-package
+        [class*="btn-package-"]
+          padding: 6px
+          margin-top: 5px
+          font-size: 10px
+      .template-1[id*="preview-package-"]
+        >div>div.pt-30
+          padding-top: 0 !important
+@media (max-width: 480px)
+  #checkout
+    #checkout-container
+      #available-sell
+        text-align: left
+      #checkout-steps
+        font-size: 12px
+      #buttons-package
+        >div:last-child
+          padding: 0
+        [class*="btn-package-"]
+          padding: 3px
+          margin-right: 2px
+

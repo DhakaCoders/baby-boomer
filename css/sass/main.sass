@@ -1,0 +1,129 @@
+$main-color: #0c7e29
+$secondary-color: #00457c
+$secondary-color2: #09304f
+$footer-color: #9ebcd3
+$light-gray: #f5f5f5
+$beige-color: #fffaef
+$light-green: #6dd322
+$dark-green: #183801
+@import "../../fonts/Oswald/Oswald.min.css"
+@import "nav"
+@import "desktop"
+@import "step1"
+@import "checkout"
+@import "footer"
+
+$padding-array: ('.pa'), ('.pt', -top), ('.pb', -bottom), ('.pl', -left), ('.pr', -right)
+@each $label, $attr in $padding-array
+  $num: 0
+  @while $num < 50
+    #{$label}-#{$num}
+      padding#{$attr}: $num +0px !important
+    $num: $num +5
+$margin-array: ('.ma'), ('.mt', -top), ('.mb', -bottom), ('.ml', -left), ('.mr', -right)
+@each $label, $attr in $margin-array
+  $num: 0
+  @while $num < 50
+    #{$label}-#{$num}
+      padding#{$attr}: $num +0px !important
+    $num: $num +5
+
+img
+  max-width: 100%
+.text-light
+  color: white
+.beige-color
+  background-color: $beige-color
+.width-100
+  width: 100%
+.bg-white
+  background-color: white
+.text-red
+  color: red
+.main-color
+  color: $main-color
+.secondary-color
+  color: $secondary-color
+.secondary-color2
+  color: lighten($secondary-color,15%)
+.bordera-0
+  border: 0 !important
+
+.template-1
+  border-radius: 10px 10px 0 0
+  border-bottom: 3px solid lighten($secondary-color,10%)
+  background-color: white
+  margin: 20px auto
+  &.story-behind
+    background-image: url(../../img/storybehind_bg.png)
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: right
+    padding: 45px
+    h2
+      margin-top: 0
+  &.guarantee
+    padding: 30px
+  &.faq
+    padding: 10px 45px
+
+.faq
+  #faq-title
+    font-weight: 600
+    border-bottom: 2px solid $secondary-color
+    padding-bottom: 15px
+    margin-bottom: 20px
+  #faq-container
+    .panel
+      border: 0
+      &.active
+        .panel-title:before
+          content: "\f068" !important
+      .panel-heading
+        background-color: #eef7ff
+        padding: 0
+        a
+          text-decoration: none
+        .panel-title
+          font-size: 18px
+          color: black
+          font-weight: 600
+          padding: 8px
+          padding-left: 50px
+          position: relative
+          &:before
+            content: "\f067"
+            background-color: $secondary-color
+            display: inline-block
+            font: normal normal normal 14px/1 FontAwesome
+            font-size: inherit
+            text-rendering: auto
+            -webkit-font-smoothing: antialiased
+            -moz-osx-font-smoothing: grayscale
+            color: white
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            width: 40px
+            text-align: center
+            line-height: 44px
+      //&.active:before
+      //  content: "\f068"
+      .panel-body
+        padding-left: 50px
+        border-top: 0
+
+.rush
+  margin-left: -36px
+
+@media (max-width: 1024px)
+  .template-1
+    background-size: cover !important
+
+
+
+
+
+
+

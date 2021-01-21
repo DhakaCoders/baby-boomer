@@ -1,0 +1,763 @@
+<?php
+include('./kon/KonConfig.php');
+
+if (!$_SESSION['billingSameAsShipping']) {
+    $_SESSION['billingSameAsShipping'] = "YES";
+}
+
+if (isset($_POST['hash_url'])) {
+    $_SESSION['hash_url'] = $_POST['hash_url'];
+}
+
+foreach (array('affId', 'c1', 'c2', 'c3') as $v) {
+    if (isset($_GET[$v]) && !empty($_GET[$v]))
+        $_SESSION[$v] = $_GET[$v];
+}
+
+if (isset($_REQUEST['product_id']) && !in_array($_REQUEST['product_id'], array(1, 2, 3))) {
+
+    $errors = array();
+    $productId = $_REQUEST['product_id'];
+    $errordub = '';
+    $purchasedItemsArray = array();
+    if (isset($_SESSION['purchased_items'])) {
+        foreach ($_SESSION['purchased_items'] as $v) {
+            $purchasedItemsArray[] = $v['product_id'];
+        }
+    }
+    $refusalArray = array(
+        1 => array(1, 2, 3),
+        2 => array(1, 2, 3),
+        3 => array(1, 2, 3),
+        4 => array(4, 5, 6),
+        5 => array(4, 5, 6),
+        6 => array(4, 5, 6),
+        7 => array(7, 8, 9),
+        8 => array(7, 8, 9),
+        9 => array(7, 8, 9),
+    );
+
+    if (isset($refusalArray[$productId])) {
+        if (count(array_intersect($refusalArray[$productId], $purchasedItemsArray)) > 0) {
+            $errordub = 'duplicate order';
+        }
+    }
+
+    if (empty($errordub)) {
+
+        $shipping_price = "0.00";
+        $content = NewOrderIdKonnective($api_key_user, $api_key_pass, $_SESSION['ord_id'], $productId, $shipping_price);
+        $ret = json_decode($content, true);
+
+        if ($ret['result'] == 'SUCCESS') {
+            $data2 = $ret['message'];
+            $orderId = $data2['orderId'];
+            $_SESSION['purchased_items_upsell'][] = array('product_id' => $productId);
+            $_SESSION['purchased_items'][] = array('product_id' => $productId, 'time' => time(), 'return' => $content);
+            $_SESSION['p_price'] = $productArray[$productId]['price'];
+            $_SESSION['sku'] = $productArray[$productId]['sku'];
+            $_SESSION['p_name'] = $productArray[$productId]['name'];
+
+            $u2 = $productArray[$productId]['success_redirect'] . $_SESSION['hash_url'];
+            header("Location:{$u2}");
+            die();
+        } else {
+            if (isset($ret['message']))
+                $errorMessage = $ret['message'];
+            $ref = $_SERVER['HTTP_REFERER'];
+            $refParts = explode('?', $ref);
+            $url = $refParts[0] . '?errorMessage=' . $errorMessage;
+            header("Location:$url");
+        }
+    } else {
+
+        $ref = $_SERVER['HTTP_REFERER'];
+        $refParts = explode('?', $ref);
+        $url = $refParts[0] . '?errorMessage=' . $errordub;
+        header("Location:$url");
+    }
+    exit();
+} else {
+    if (isset($_POST['submitted']) && $_POST['submitted'] == '1') {
+        $r = NewClick($api_key_user, $api_key_pass, $campaign_id, 'checkoutPage', $_SERVER['REQUEST_URI']);
+        $ssl_url = "https://" . $_SERVER['SERVER_NAME'];
+
+        $ret = json_decode($r, true);
+        $session_id = $ret['message']['sessionId'];
+        $_SESSION['session_id'] = $session_id;
+        $errors = array();
+        $requiredFields = array('campaign_id' => 'Campaign Id', 'custom_product' => 'Product Id', 'cc_number' => 'Credit Card number');
+
+        foreach ($requiredFields as $k => $v)
+            if (empty($_POST[$k])) {
+                $errors[] = $requiredFields[$k] . " can not be empty.";
+            }
+
+        foreach ($_REQUEST as $k => $v) {
+            $_SESSION[$k] = $v;
+        }
+
+        if (count($errors) > 0) {
+            $errorMessage = implode("\n ", $errors);
+        } else {
+
+            $content = NewOrder($api_key_user, $api_key_pass, $_REQUEST);
+            $ret = json_decode($content);
+
+            if ($ret->result == 'SUCCESS') {
+                $_SESSION['purchased_items_upsell'] = [];
+                $data2 = $ret->message;
+                $_SESSION['email'] = "";
+                $_SESSION['phone'] = "";
+                $_SESSION['fields_fname'] = "";
+                $_SESSION['fields_lname'] = "";
+                $_SESSION['fields_address1'] = "";
+                $_SESSION['fields_city'] = "";
+                $_SESSION['fields_state'] = "";
+                $_SESSION['fields_zip'] = "";
+                $_SESSION['billing_street_address'] = "";
+                $_SESSION['billing_city'] = "";
+                $_SESSION['billing_state'] = "";
+                $_SESSION['billing_postcode'] = "";
+                $_SESSION['purchased_items'] = array();
+                $product_Id = $_REQUEST['product_id'];
+                $_SESSION['main_price'] = $ret->message->totalAmount;
+                $_SESSION['purchased_items'][] = array('product_id' => $product_Id, 'time' => time(), 'return' => $content);
+
+                $orderId = $data2->orderId;
+                $_SESSION['ord_id'] = $orderId;
+                $_SESSION['main_price'] = $data2->totalAmount;
+                $_SESSION['sku'] = $productArray[$product_Id]['sku'];
+                $_SESSION['main_name'] = $productArray[$product_Id]['name'];
+                $u = $productArray[$product_Id]['success_redirect'] . $_SESSION['hash_url'];
+                header("Location:{$u}");
+            } else {
+                if (isset($ret->message) && is_string($ret->message))
+                    $errorMessage = "Please fix the following errors: " . $ret->message;
+
+                if (is_object($ret->message)) {
+                    foreach ($ret->message as $key => $value) {
+                        $errorMessage .= $key . " " . $value . " ";
+                    }
+                }
+            }
+        }
+    } else {
+    }
+}
+?>
+<?php
+@session_start();
+error_reporting(0);
+$validation_function = 'validate_checkout_form()';
+if (!isset($_REQUEST['prospectId']) || empty($_REQUEST['prospectId'])) {
+    $validation_function = 'validate_one_form()';
+}
+if ($errorMessage) {
+    echo "<table style='width:100%;' align='center'><tr><td style='background-color:#ff0000;color:#ffffff;font-size: 18px;font-family: arial,helvetica,sans-serif; font-weight:bold;height:50px; padding-top: 10px; text-align: center;' align='center'>" . urldecode($errorMessage) . "</td></tr></table>";
+}
+?>
+<!doctype html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <title>Checkout - Adsiato Naturals</title>
+    <META NAME="robots" CONTENT="noindex,nofollow">
+    <META NAME="robots" CONTENT="noindex">
+    <META NAME="robots" CONTENT="nofollow">
+    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="css/style.css?v=121" type="text/css" media="screen">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+   <link rel='icon' href='img/HB-5-fav_32x32.gif' type='image/x-icon'/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+        @media (max-width: 1024px) {
+            .ordernow_arrow_col {
+                display: none !important;
+            }
+
+            .hide2 {
+                display: none !important;
+            }
+
+            .show2 {
+                display: block !important;
+            }
+        }
+        .hide-show {
+            display: block;
+        }
+
+        .product_info h2.sale {
+            margin: 10px 0 12px;
+        }
+
+        @media (max-width: 992px) {
+            .hide-show {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1080px) {
+            .show2 {
+                display: block !important;
+            }
+        }
+
+        @media only screen and (max-width: 1080px) {
+            .mob-hide {
+                display: none;
+            }
+        }
+
+        img.head_secure {
+            height: 45px;
+            margin-top: 4%;
+        }
+
+        .footer li a:hover {
+            color: #20a5dd!important;
+        }
+
+        @media (max-width: 823px) {
+            .tracking_offer_col h1 {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .card_img {
+                max-width: 100% !important;
+            }
+        }
+        .product_info.tab_cont h1 {
+            text-align: center;
+            font-size: 38px;
+        }
+		.text-large-47 {
+    font-size: 38px;
+    line-height: 40px;
+	font-family: 'latoblack';
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.red {
+    color: #bd2425;
+}
+@font-face {
+font-family: 'latoblack';
+src: url('fonts_index/lato-black-webfont.woff2') format('woff2'), url('fonts_index/lato-black-webfont.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+iframe{
+	max-width:100%;	
+}
+.btn.btn-circle.active-step.btn-primary {
+    opacity: 1;
+}
+.btn.btn-circle.active-step.btn-primary, .btn.btn-default.deactive.btn-circle {
+    background: 0 0;
+    border: none;
+    font-size: 23px;
+    outline: 0;
+	cursor: default;
+}
+        @media screen and (max-width:520px){
+            .btn.btn-circle.active-step.btn-primary, .btn.btn-default.deactive.btn-circle{
+                font-size: 18px!important;
+            }
+        }
+        
+.footer {
+
+    background: #222;
+}
+.white_bg_cont{
+    background: #fff;
+}
+    </style>
+</head>
+
+<body class="step-2-page">
+
+<header>
+    <div class="container">
+        <!--====logo left=====-->
+        <div class="row">
+            <div class="col-xs-6 col-ms-4 col-md-4  logo wow fadeInLeft" style="float:left"><img src="img/adsiato-supplement-logo.png?v=1" alt=""></div>
+<!--            <div class="col-xs-6 col-ms-4 col-md-4  select wow fadeInRight " style="float:right"><img src="img/secure3.jpg?v=1.2" class="head_secure"></div>-->
+        </div>
+        <!--====/logo left=====-->
+    </div>
+</header>
+<!--=====container white section=====-->
+<div class="white_bg_cont">
+    <div class="container">
+        <div class="resize1">
+            <div class="stepwizard2">
+                <div class="stepwizard-row2 step-wizard-2 wow fadeInUp animated" data-wow-delay="0.1s">
+                    <ul>
+                        <li class="active">
+                            <div class="col-xs-6">
+                                <div class="stepwizard-step2">
+                                    <div class="btn btn-circle active-step btn-primary">FINISH ORDER </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-xs-6">
+                                <div class="stepwizard-step2">
+                                    <div class="btn btn-default deactive btn-circle" disabled="disabled">SUMMARY</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rate-updates step-2">
+                    <div class="tab-content margintop0" style="border:none !important;">
+                        <div class="tab-pane fade active in  padding20 " id="step-3">
+                            <div class="row">
+                                <div class="col-lg-8 wow fadeInLeft animated" data-wow-delay="0.1s">
+                                    <div class="tracking_offer_col">
+                                        <div class="selected_package">
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <h2>Your Selected Package</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    /*        var_dump($_SESSION['all_products_2']);
+                                    exit;*/
+                                    foreach ($_SESSION['all_products_2'] as $p){
+                                    ?>
+                                    <!-- product info -->
+                                    <div class="product_info tab_cont" id="tab1" style="display:table;">
+                                        <div class="col-md-7">
+                                            <div class="product_img text-center">
+                                                <img src="<?php echo $productArray[$p]['img'];?>" alt="" width="50%">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5" style="margin-top: 6%;">
+                                            <h1>$<?php echo $productArray[$p]['price'];?> / bottle</h1>
+                                            <?php $total+=$productArray[$p]['price'];?>
+                                            <h2 class="free">( Free Shipping )</h2>
+                                        </div>
+                                        
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <!-- /product info end-->
+                                    <?php
+
+                                    }
+                                    ?>
+                                    <div style="text-align: center; margin-top: 5%;">
+                                            <h1>Total : $<?php echo $total;?></h1>
+                                        </div>
+                                </div>
+                                <div class="col-lg-4 wow fadeInRight animated" data-wow-delay="0.3s">
+                                    <div class="sidebar">
+                                        <div class="final_step_heading">
+                                            <h1 style="font-weight:700;margin: 0px;">FINAL STEP</h1>
+                                            <h3 style="font-size: 23px;margin: 4px">PAYMENT CONFIRMATION</h3>
+                                        </div>
+                                        <div class="sidebar_resize">
+                                            <form class="form_col" data-toggle="validator" role="form"
+                                                  action="./step2.php?product_id=<?php echo $_REQUEST['product_id'] ?>"
+                                                  method="post" id="checkout_form">
+                                                <div class="form-group">
+                                                    <input class="input_form" minlength="3" maxlength="55" type="email"
+                                                           placeholder="Email address" id="email" name="fields_email"
+                                                           value="<?php echo $_SESSION['email']; ?>"
+                                                           pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
+                                                           required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <input class="input_form" type="text" pattern="^((?!(0))[0-9]{10})$"
+                                                           title="Phone Must be 10 digits, and should not start with 0."
+                                                           placeholder="Phone number" id="phone" name="fields_phone"
+                                                           minlength="2" maxlength="10"
+                                                           onKeyDown="return onlyNumbers(event, 'require')"
+                                                           value="<?php echo $_SESSION['phone']; ?>" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input class="input_form" type="text" maxlength="20" id="firstName"
+                                                           pattern="[\sa-zA-Z]{2,32}"
+                                                           title="First name should only contain letters."
+                                                           placeholder="First name" name="fields_fname"
+                                                           value="<?php echo $_SESSION['fields_fname']; ?>" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <input class="input_form" type="text" id="lastName"
+                                                           pattern="[\sa-zA-Z]{2,32}" maxlength="20"
+                                                           title="Last name should only contain letters."
+                                                           placeholder="Last name" name="fields_lname"
+                                                           value="<?php echo $_SESSION['fields_lname']; ?>" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <input class="input_form" minlength="3" maxlength="50" type="text"
+                                                           id="address" placeholder="Address"
+                                                           name="fields_address1"
+                                                           value="<?php echo $_SESSION['fields_address1']; ?>" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <input class="input_form" minlength="3" maxlength="30" type="text"
+                                                           placeholder="City"
+                                                           title="City should only contain letters, and spaces but must not start with a space"
+                                                           id="City" name="fields_city"
+                                                           value="<?php echo $_SESSION['fields_city']; ?>" required>
+                                                </div>
+                                                <?php
+                                                $statesArray = array();
+                                                $statesArray["AL"] = "Alabama (AL)";
+                                                $statesArray["AL"] = "Alabama";
+                                                $statesArray["AK"] = "Alaska";
+                                                $statesArray["AZ"] = "Arizona";
+                                                $statesArray["AR"] = "Arkansas";
+                                                $statesArray["CA"] = "California";
+                                                $statesArray["CO"] = "Colorado";
+                                                $statesArray["CT"] = "Connecticut";
+                                                $statesArray["DE"] = "Delaware";
+                                                $statesArray["DC"] = "District of Columbia";
+                                                $statesArray["FL"] = "Florida";
+                                                $statesArray["GA"] = "Georgia";
+                                                $statesArray["HI"] = "Hawaii";
+                                                $statesArray["ID"] = "Idaho";
+                                                $statesArray["IL"] = "Illinois";
+                                                $statesArray["IN"] = "Indiana";
+                                                $statesArray["IA"] = "Iowa";
+                                                $statesArray["KS"] = "Kansas";
+                                                $statesArray["KY"] = "Kentucky";
+                                                $statesArray["LA"] = "Louisiana";
+                                                $statesArray["ME"] = "Maine";
+                                                $statesArray["MD"] = "Maryland";
+                                                $statesArray["MA"] = "Massachusetts";
+                                                $statesArray["MI"] = "Michigan";
+                                                $statesArray["MN"] = "Minnesota";
+                                                $statesArray["MS"] = "Mississippi";
+                                                $statesArray["MO"] = "Missouri";
+                                                $statesArray["MT"] = "Montana";
+                                                $statesArray["NE"] = "Nebraska";
+                                                $statesArray["NV"] = "Nevada";
+                                                $statesArray["NH"] = "New Hampshire";
+                                                $statesArray["NJ"] = "New Jersey";
+                                                $statesArray["NM"] = "New Mexico";
+                                                $statesArray["NY"] = "New York";
+                                                $statesArray["NC"] = "North Carolina";
+                                                $statesArray["ND"] = "North Dakota";
+                                                $statesArray["OH"] = "Ohio";
+                                                $statesArray["OK"] = "Oklahoma";
+                                                $statesArray["OR"] = "Oregon";
+                                                $statesArray["PA"] = "Pennsylvania";
+                                                $statesArray["PR"] = "Puerto Rico";
+                                                $statesArray["RI"] = "Rhode Island";
+                                                $statesArray["SC"] = "South Carolina";
+                                                $statesArray["SD"] = "South Dakota";
+                                                $statesArray["TN"] = "Tennessee";
+                                                $statesArray["TX"] = "Texas";
+                                                $statesArray["UT"] = "Utah";
+                                                $statesArray["VT"] = "Vermont";
+                                                $statesArray["VI"] = "Virgin Islands of the U.S.";
+                                                $statesArray["VA"] = "Virginia";
+                                                $statesArray["WA"] = "Washington";
+                                                $statesArray["WV"] = "West Virginia";
+                                                $statesArray["WI"] = "Wisconsin";
+                                                $statesArray["WY"] = "Wyoming";
+                                                ?>
+                                                <div class="form-group">
+                                                    <select class="input_form two_fields" name="fields_state"
+                                                            id="states" required>
+                                                        <option value="">Select State</option>
+                                                        <?php
+                                                        foreach ($statesArray as $key => $value) {
+                                                            if ($key == $_SESSION['fields_state']) {
+                                                                echo "<option value='$key' selected>$value</option>";
+                                                            } else {
+                                                                echo "<option value='$key'>$value</option>";
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input class="input_form" type="text" pattern="^([0-9]{5}))$"
+                                                           title="Zip code shouldn't start with 0, and accept 5 digits"
+                                                           placeholder="Postal code" id="postalCode" name="fields_zip"
+                                                           minlength="5" maxlength="5"
+                                                           value="<?php echo $_SESSION['fields_zip']; ?>"
+                                                           onKeyDown="return onlyNumbers(event, 'require')" required>
+                                                </div>
+
+
+                                                <div class="form_field check_col">
+                                                    <input id="box1" type="checkbox" checked="checked"
+                                                           onChange="valueChanged()"/>
+                                                    <label for="box1"> <strong>Billing Address same as shipping
+                                                            ? </strong></label>
+                                                </div>
+                                                <!-- billing address -->
+                                                <div class="billing_add">
+                                                    <div class="form-group">
+                                                        <input class="input_form" minlength="3" maxlength="50"
+                                                               type="text" name="billing_street_address"
+                                                               id="billing_street_address"
+                                                               value="<?php echo $_SESSION['billing_street_address']; ?>"
+                                                               placeholder="Address"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="input_form" minlength="3" maxlength="20"
+                                                               type="text" name="billing_city" id="billing_city"
+                                                               placeholder="City"
+                                                               value="<?php echo $_SESSION['billing_city']; ?>"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <select name="billing_state" id="billing_state"
+                                                                class="input_form two_fields">
+                                                            <option value="">Select State</option>
+                                                            <?php
+                                                            foreach ($statesArray as $key => $value) {
+                                                                if ($key == $_SESSION['billing_state']) {
+                                                                    echo "<option value='$key' selected>$value</option>";
+                                                                } else {
+                                                                    echo "<option value='$key'>$value</option>";
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="input_form" type="text" name="billing_postcode"
+                                                               id="billing_postcode" pattern="^([0-9]{5}))$"
+                                                               title="Zip code shouldn't start with 0, and accept 5 digits"
+                                                               minlength="5" maxlength="5"
+                                                               value="<?php echo $_SESSION['billing_postcode']; ?>"
+                                                               onKeyDown="return onlyNumbers(event, 'require')"
+                                                               placeholder="Postal Code"/>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <img src="./img/card-img.png?v=1.1" class="card_img">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input class="input_form" type="text"
+                                                           placeholder="Credit Card Number" id="cardNumber"
+                                                           name="cc_number" autocomplete="off" maxlength="16"
+                                                           onKeyDown="return onlyNumbers(event, 'require')" required>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group">
+                                                            <select class="input_form two_fields" name="fields_expmonth"
+                                                                    id="expirationMonth" required>
+                                                                <option value="01" selected>01 (Jan)</option>
+                                                                <option value='02'>02 (Feb)</option>
+                                                                <option value='03'>03 (Mar)</option>
+                                                                <option value='04'>04 (Apr)</option>
+                                                                <option value='05'>05 (May)</option>
+                                                                <option value='06'>06 (Jun)</option>
+                                                                <option value='07'>07 (Jul)</option>
+                                                                <option value='08'>08 (Aug)</option>
+                                                                <option value='09'>09 (Sep)</option>
+                                                                <option value='10'>10 (Oct)</option>
+                                                                <option value='11'>11 (Nov)</option>
+                                                                <option value='12'>12 (Dec)</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group">
+                                                            <select name="fields_expyear" id="expirationYear"
+                                                                    class="required n-year year input_form two_fields"
+                                                                    required>
+                                                                <option value="" selected>Select year</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group">
+                                                            <input class="input_form" type="text" placeholder="CVV code"
+                                                                   id="securityCode" name="cc_cvv" pattern="^([0-9]*)$"
+                                                                   autocomplete="off" maxlength="4" value=""
+                                                                   onKeyDown="return onlyNumbers(event, 'require')"
+                                                                   required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 cvv left pt-5"><a
+                                                                href="javascript:void(0)"></a><span
+                                                                style="cursor: pointer;"
+                                                                class="whats_this">What's this?</span></div>
+                                                    <div class="cvv-image clear"
+                                                         style="display: none;text-align: center;"><img
+                                                                src="img/cvv2-location.png?v=1" alt=""></div>
+                                                </div>
+                                                <p class="main-color text-center"><img src="./img/lock.jpg"> Secure
+                                                    256-bit encrypted
+                                                    connection</p>
+                                                <div class="row pb-20">
+                                                    <div class="col-lg-12 col-lg-offset-0 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                                                        <button type="submit"
+                                                                class="text-center next_step_btn get_perfect checkout_btn"
+                                                                id="submit-checkout" value="complete checkout">complete
+                                                            checkout
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <img src="img/verify.png" class="card_img">
+                                                <input type="hidden" id="custom_product" name="custom_product"
+                                                       value="<?php echo $_REQUEST['product_id']; ?>"/>
+                                                <input type="hidden" id="custom_product_price"
+                                                       name="custom_product_price"
+                                                       value="<?php echo $pr_price; ?>"/>
+                                                <input type="hidden" id="product_name" name="product_name"
+                                                       value="<?php echo $product_name; ?>"/>
+                                                <input type="hidden" name="shippingId" id="shippingId"
+                                                       value="<?php echo $shipping_id; ?>"/>
+                                                <input type="hidden" name="campaign_id" id="campaign_id"
+                                                       value="<?php echo $campaign_id; ?>"/>
+                                                <input type="hidden" name="billingSameAsShipping"
+                                                       id="billingSameAsShipping" value="YES"/>
+                                                <input type="hidden" id="billing_country" name="billing_country"
+                                                       value="US"/>
+                                                <input type="hidden" name="country" id="country" value="US"/>
+                                                <input type="hidden" id="submitted" name="submitted" value="1"/>
+                                                <input type="hidden" id="page" name="page" value="step2"/>
+                                                <input type="hidden" id="hash_url" name="hash_url" value=""/>
+                                            </form>
+
+                                        </div>
+                                        <!-- /sidebar resize -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /resize end -->
+            </div>
+        </div>
+    </div>
+</div>
+<!--=====container white section=====-->
+<!--=====footer section=====-->
+<div class="footer">
+    <div class="container wow fadeInUp animated" data-wow-delay="0.3s">
+        <ul class="foot_1">
+            <li><a target="_blank" href="faq.html">FAQ</a></li>
+            <li><a target="_blank" href="disclaimer.html">Disclaimer </a></li>
+            <li><a target="_blank" href="privacy-policy.html">Privacy</a></li>
+            <li><a target="_blank" href="terms-conditions.html">Terms and Conditions</a></li>
+            <li><a target="_blank" href="refunds.html">Refunds</a></li>
+            <li><a target="_blank" href="contact-us.html">Contact Us</a></li>
+        </ul>
+        <p class="disclaimer">
+            The products and the claims made about specific products on or through this site have not been evaluated by
+            the United States Food and Drug Administration and are not intended to diagnose, treat, cure or prevent
+            disease. The information provided on this site is for informational purposes only and is not intended as a
+            substitute for advice from your physician or other health care professional or any information contained on
+            or in any product label or packaging. You should not use the information on this site for diagnosis or
+            treatment of any health problem or for prescription of any medication or other treatment. You should consult
+            with a healthcare professional before starting any diet, exercise or supplementation program, before taking
+            any medication, or if you have or suspect you might have a health problem.
+        </p>
+        <p>Copyright © Adsiato Naturals <span id='cyear'></span>. All Rights Reserved.</p>
+    </div>
+</div>
+<!--=====/footer section=====-->
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/checkout.js?v=2.2"></script>
+<script>
+    $(".cvv").click(function () {
+        $(".cvv-image").toggle();
+    });
+
+    function valueChanged() {
+        if ($('#box1').is(":checked")) {
+            $('#billingSameAsShipping').val('YES');
+            $(".billing_add").hide();
+            $("#billing_street_address").removeAttr('required');
+            $("#billing_city").removeAttr('required');
+            $("#billing_state").removeAttr('required');
+            $("#billing_postcode").removeAttr('required');
+
+        } else {
+            $(".billing_add").show();
+            $('#billingSameAsShipping').val('NO');
+            $("#billing_street_address").prop('required', true);
+            $("#billing_city").prop('required', true);
+            $("#billing_state").prop('required', true);
+            $("#billing_postcode").prop('required', true);
+        }
+    }
+
+    $(function () {
+        var i = 0;
+        $('#checkout_form').submit(function () {
+            if (!$(this).checkValidity || $(this).checkValidity()) {
+                if (i > 0) {
+                    return false;
+                }
+                i++;
+            } else { }
+        });
+    })
+    
+
+    window.onbeforeunload = function () {
+        $.ajax({
+            method: "POST",
+            async: false,
+            url: "./kon/lead.php",
+            data: $('#checkout_form').serializeArray()
+        })
+            .done(function (msg) {
+
+            });
+    }
+
+    var url_para = localStorage.getItem("hash_url");
+    $('#hash_url').val(url_para);
+
+    var ccYear = $("#expirationYear");
+    var currentYear = new Date().getFullYear();
+    $("#cyear").html(currentYear);
+    for (var i = currentYear; i < currentYear + 19; i++) {
+        var elem = $('<option value=' + i.toString().substr(-2) + '>' + i + '</option>');
+        ccYear.append(elem);
+    }
+</script>
+<?php if (!empty($_REQUEST['product_id'])) ?>
+
+
+<?php if (!empty($_SESSION['billingSameAsShipping']) && $_SESSION['billingSameAsShipping'] == 'NO'): ?>
+    <script type="text/javascript">
+        $(function () {
+            $('#box1').click();
+        })
+    </script>
+<?php endif; ?>
+<script>
+    (function (w, d, t, r, u) {
+        var f, n, i;
+        w[u] = w[u] || [], f = function () {
+            var o = {ti: "25015778"};
+            o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad")
+        }, n = d.createElement(t), n.src = r, n.async = 1, n.onload = n.onreadystatechange = function () {
+            var s = this.readyState;
+            s && s !== "loaded" && s !== "complete" || (f(), n.onload = n.onreadystatechange = null)
+        }, i = d.getElementsByTagName(t)[0], i.parentNode.insertBefore(n, i)
+    })(window, document, "script", "//bat.bing.com/bat.js", "uetq");
+</script>
+</body>
+</html>
