@@ -53,9 +53,11 @@
 	  <div class="hm-banner-img">
 	  	<img src="images-new/banner-img.png">
 	  </div>
-  	  <div class="hm-banner-dsc" id="nav">
+  	  <div class="hm-banner-dsc">
   	     <h1 class="hm-banner-dsc-title">Top Quality, Research Backed Supplements</h1>
-  	    <a href="#section-1">Get it Now</a>
+  	    <div class="hm-scroll-btn" id="nav">
+  	      <a href="#section-1">Get it Now</a>
+  	    </div>
       </div>
 	</div>
 	</div>
@@ -398,6 +400,7 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
 
+<script src="js-new/jquery.nav.js?v=1.0"></script>
 
 <script src="script.js?v=1.0"></script>
 <script>
