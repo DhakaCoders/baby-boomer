@@ -43,28 +43,24 @@
         </div><!-- end wrapper -->
     </header>
 <!-- end header section -->
+
+
+<!-- start Banner section -->
+<div class="banner-sec-wrp">
+  <div class="wrapper">
+	<div class="banner-dsc-wrp">
+	  <p>hajdhfjdhf jkhjkhsjkdfhjdshjkdfklsajkodj</p>
+	</div>
+  </div>
+</div><!-- end banner -->
+<!-- end Banner section -->
+
     
 <!-- start Main content section -->
 <main id="mainContent">
     <div class="wrapper">
         <div class="col-12 rightsideBar">
-            <!-- start Banner section -->
-            <div class="banner">
-              <div class="owl-carousel owl-theme" id="home_sl">
             
-					
-					<div class="item">
-						<img src="img/slider2_new.jpg?v=1.0">
-						
-					</div>
-					
-					<div class="item">
-						<img src="img/slider3_new.jpg?v=1.0">
-						
-					</div>
-				</div>
-            </div><!-- end banner -->
-            <!-- end Banner section -->
 			
 			<div class="pr_intro" id="abt-sec">
 			<div class="col-8">
