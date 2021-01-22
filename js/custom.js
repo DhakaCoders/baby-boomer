@@ -86,5 +86,33 @@ $('#ouibounce-model .model').on('click', function(e) {
     e.stopPropagation();
 });
 
+$('#nav').onePageNav({
+  currentClass: 'current',
+  currentId: 'href',
+  changeHash: false,
+  scrollSpeed: 750,
+  scrollThreshold: 0.5,
+  filter: '',
+  easing: 'swing',
+  begin: function() {
+    //I get fired when the animation is starting
+  },
+  end: function() {
+    //I get fired when the animation is ending
+  },
+  scrollChange: function($currentListItem) {
+    //I get fired when you enter a section and I pass the list item of the section
+    console.log($currentListItem);
+
+   /*alert($("#nav").attr("href","https://www.dhakacoders.com"));*/
+
+   var addtext = $("hm-banner-dsc a").text();
+   (".hm-banner-dsc").addClass(addtext);
+
+
+
+  }
+});
+
 
 

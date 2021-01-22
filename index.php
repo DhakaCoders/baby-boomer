@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Adsiato Naturals</title>
+    <title>Baby Boomer Biotech</title>
     <meta name="robots" content="noindex,nofollow">
     <meta name="robots" content="noindex">
     <meta name="robots" content="nofollow">
@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css?v=10.8" type="text/css">
-    <link rel="stylesheet" href="style-new.css?v=10.8" type="text/css">
+    <link rel="stylesheet" href="css/style-new.css?v=10.8" type="text/css">
 </head>
 	<body>
 <!-- header section -->
@@ -48,12 +48,140 @@
 <!-- start Banner section -->
 <div class="banner-sec-wrp">
   <div class="wrapper">
-	<div class="banner-dsc-wrp">
-	  <p>hajdhfjdhf jkhjkhsjkdfhjdshjkdfklsajkodj</p>
+	<div class="col-12">
+	 <div class="banner-wrp clearfix">
+	  <div class="hm-banner-img">
+	  	<img src="images-new/banner-img.png">
+	  </div>
+  	  <div class="hm-banner-dsc" id="nav">
+  	     <h1 class="hm-banner-dsc-title">Top Quality, Research Backed Supplements</h1>
+  	    <a href="#section-1">Get it Now</a>
+      </div>
+	</div>
 	</div>
   </div>
 </div><!-- end banner -->
 <!-- end Banner section -->
+
+<section class="hm-about-sec-wrp">
+	<div class="wrapper">
+	  <div class="col-12">
+	  	<div class="hm-about-wrp clearfix">
+	  	  <div class="hm-about-img">
+	  	  	<img src="images-new/banner-img.png">
+	  	  </div>
+	  	  <div class="hm-about-dsc">
+	  	  	<h2 class="hm-about-dsc-title">What is GL Pure Advanced All About?</h2>
+			<p>GL Pure Advanced is an all-natural herbal blood sugar support supplement. It can be helpful for people dealing with erratic blood sugar, and is safe due to its natural herbal ingredients.</p>
+			<p>All Baby Boomer Biotech LLC supplements are manufactured using GMP (Good Manufacturing Practices). A combination of both scheduled and surprise inspections are conducted by the quality assurance staff over various aspects of the manufacturing process. This helps to maintain ideal quality, strength, and purity for both the raw ingredients and finished supplements.</p>
+	  	  </div>
+	  	</div>
+	  </div>
+	</div>
+</section>
+
+<section class="our-flagship-sec-wrp" id="section-1">
+	<div class="wrapper">
+	  <div class="col-12">
+	  	<div class="our-flagship-head">
+	  	  <h2 class="our-flagship-head-title">Our Flagship Product</h2>
+	  	  <p>iGenics is a special formula made with 9 ingredients. These ingredients are natural, well-researched, made in the USA, and meet GMP and FDA guidelines.</p>
+	  	</div>
+	  	<div class="our-flagship-wrp clearfix">
+	  	  <div class="our-flagship-img">
+	  	  	<img src="images-new/our-flagship-img.png">
+	  	  </div>
+	  	  <div class="our-flagship-dsc">
+	  	  	<div class="our-flagship-price clearfix">
+	  	  	  <h3 class="our-flagship-price-title">Baby Boomer Biotech</h3>
+	  	  	  <strong>Total Price</strong>
+	  	  	</div>
+	  	  	<div class="our-flagship-checkbox">
+  	  		  <ul class="reset-list clearfix">
+                <li>
+                  <label>
+                    Qty 6 (180-day Supply) 
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                </li>
+                <li><strong>$294.00</strong></li>
+                <li>
+                  <label>
+                    Qty 3 (90-day Supply)
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                </li>
+                <li><strong>$177.00</strong></li>
+                <li>
+                  <label>
+                    Qty 1 (30-day Supply)
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                </li>
+                <li><strong>$69.00</strong></li>
+              </ul>
+	  	  	</div>
+	  	  	<div class="our-flagship-btn">
+	  	  	  <a href="#">ADD TO CART</a>
+	  	  	</div>
+	  	  </div>
+	  	</div>
+	  </div>
+	</div>
+</section>
+
+<section class="our-service-sec-wrp">
+	<div class="wrapper">
+	  <div class="col-12">
+	  	<div class="our-service-box-wrp">
+	  	  <ul>
+	  	  	<li>
+	  	  	  <div class="our-service-box-inr clearfix">
+	  	  	  	<div class="our-service-box-img">
+	  	  	  	  <img src="images-new/our-ser-icon-1.png">
+	  	  	  	</div>
+	  	  	  	<div class="our-service-box-dsc">
+	  	  	  	  <strong>30-DAY</strong>
+	  	  	  	  <span>MONEY BACK GUARANTEE</span>
+	  	  	  	</div>
+	  	  	  </div>
+	  	  	</li>
+	  	  	<li>
+	  	  	  <div class="our-service-box-inr clearfix">
+	  	  	  	<div class="our-service-box-img">
+	  	  	  	  <img src="images-new/our-ser-icon-2.png">
+	  	  	  	</div>
+	  	  	  	<div class="our-service-box-dsc">
+	  	  	  	  <strong>855-210-1826</strong>
+	  	  	  	  <span>Call us weekdays 9am - 6pm ET</span>
+	  	  	  	</div>
+	  	  	  </div>
+	  	  	</li>
+	  	  	<li>
+	  	  	  <div class="our-service-box-inr clearfix">
+	  	  	  	<div class="our-service-box-img">
+	  	  	  	  <img src="images-new/our-ser-icon-3.png">
+	  	  	  	</div>
+	  	  	  	<div class="our-service-box-dsc">
+	  	  	  	  <span>FREE SHIPPING ON ALL US ORDERS</span>
+	  	  	  	</div>
+	  	  	  </div>
+	  	  	</li>
+	  	  	<li>
+	  	  	  <div class="our-service-box-inr clearfix">
+	  	  	  	<div class="our-service-box-img">
+	  	  	  	  <img src="images-new/our-ser-icon-4.png">
+	  	  	  	</div>
+	  	  	  </div>
+	  	  	</li>
+	  	  </ul>
+	  	</div>
+	  </div>
+	</div>
+</section>
 
     
 <!-- start Main content section -->
@@ -62,18 +190,7 @@
         <div class="col-12 rightsideBar">
             
 			
-			<div class="pr_intro" id="abt-sec">
-			<div class="col-8">
-			<h2>What is GL Pure Advanced All About?</h2>
-			<p>GL Pure Advanced is an all-natural herbal blood sugar support supplement. It can be helpful for people dealing with erratic blood sugar, and is safe due to its natural herbal ingredients.</p>
-<p>
-All Adsiato LLC supplements are manufactured using GMP (Good Manufacturing Practices). A combination of both scheduled and surprise inspections are conducted by the quality assurance staff over various aspects of the manufacturing process. This helps to maintain ideal quality, strength, and purity for both the raw ingredients and finished supplements.</p>
 			
-			</div>
-			<div class="col-4">
-			<img src="img/product-3.png" alt="" class="pro_3">
-			</div>
-			</div>
 			
 			
 			<div class="label_sec">
@@ -89,175 +206,6 @@ All Adsiato LLC supplements are manufactured using GMP (Good Manufacturing Pract
 			</div>
 			
            
-            <!-- start Banner bottom ad section -->
-            <!-- start featured product section -->
-            <div class="featureApart clearfix">
-                <h2>Package Selection</h2>
-                <div class="productRow clearfix">
-                    <!-- <div class="col-3">
-                        <div class="proThumb">
-                            <a href="#"><img src="img/product_1.png" alt=""></a>
-                            <div class="pricesec">
-                                <ul><li><a class="ybgbtn cartBtn" href="single-product.php">Buy Now</a>
-                                    <li class="price"><span>$69.00</span></li>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="desc">
-                                <h3>Cell Xtend </h3>
-                                <p>Cell Xtend is a natural health supplement, designed with 6 proven ingredients to fight aging in the body.</p>
-                                <a href="single-product.php">More Info</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-					<div class="col-3">
-                        <div class="proThumb">
-                            <a href="#"><img src="img/product_2.png" alt=""></a>
-                            <div class="pricesec">
-                                <ul><li><a class="ybgbtn cartBtn" href="single-product-cogni.php">Buy Now</a></li>
-                                    <li class="price"><span>$39.00</span></li>
-                                    
-                                </ul>
-                            </div>
-                           <div class="desc">
-                                <h3>Cogni Xtend</h3>
-                                <p>Cogni Xtend is a full spectrum brain support aid…
-Made with 9 natural ingredients proven to support...
-</p>
-                                <a href="single-product-cogni.php">More Info</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                     
-                    <div class="col-3">
-                        <div class="proThumb">
-                            <a href="#"><img src="img/product_3.png" alt=""></a>
-                            <div class="pricesec">
-                                <ul><li><a class="ybgbtn cartBtn" href="single-product-cleanse.php">Buy Now</a></li>
-                                    <li class="price"><span>$39.00</span></li>
-                                    
-                                </ul>
-                            </div>
-                            <div class="desc">
-                                <h3>Meta Cleanse</h3>
-                                <p>MetaCleanse Plus is a metabolic digestive support aid by Adsiato Naturals.
-We developed MetaCleanse Plus…
-</p>
-                                <a href="single-product-cleanse.php">More Info</a>
-                            </div>
-                        </div>
-                    </div> -->
-					<div class="col-12">
-<div class="bottes_sec full-width pt-70">
-	<div class="row packages">
-	
-	<div class="col-4 p1">
-	<div class="border_bottle">
-		<div class="bottle-center left_bottle">
-			<div class="bottle-top full-width text-center bottle-top-left">
-				<p class="pack-type text-center">Sampler Package</p>
-				<p class="supply text-center f30">1 Month Supply</p>
-			</div>
-			<p class="pack-pic">
-            <img src="img/product-1.png?v=1.1" alt="" class="pro1"></p>
-			<div class="price-part bg_cover lazy">
-			<p class="price price-center"><span>$</span>59</p>
-			<p class="price-each">.00 <br><span>/each</span></p>
-			<!-- <p class="save_price source_sans_bold red">$99.97</p> -->
-			
-			</div>
-			<div class="center-content">
-			<p class="fat-loss free-ship border"><span>
-            <img src="img/car.jpg" alt="" class=""></span>free shipping </p>
-			<p class="fat-loss free-ship"><span>
-            <img src="img/circle_tick.jpg" alt="" class=""></span> 180 day
-money back guarantee</p>
-<p class="cart-btn text-center">
-            <a href="javascript:void(0);" data-title="1" class="pro_href_1 addToCart"><img src="img/add_cart.jpg" alt="" class=""></a></p>
-<p class="text-center payment">
-            <img src="img/payment.jpg?v=1" alt="" class=""></p>
-			</div>	
-		</div>
-	</div>
-	</div>
-	
-	
-	
-	
-	
-	<div class="col-4 centerpack p2" id="bottle_six">
-	<div class="border_bottle">
-		<div class="bottle-center center_bottle">
-			<div class="bottle-top-center full-width text-center">
-				<p class="pack-type text-center text-medium-36">Best Value</p>
-				<p class="supply text-center text-large-42">6 month supply</p>
-			</div>
-			<p class="pack-pic">
-            <img src="img/product-6.png?v=1.7" alt="" class="pro6"></p>
-			<div class="price-part bg_cover lazy">
-			<p class="price price-center"><span>$</span>29</p>
-			<p class="price-each">.00 <br><span>/each</span></p>
-			<!-- <p class="save_price source_sans_bold red">$599.82</p> -->
-			
-			</div>
-			<div class="center-content">
-			<p class="fat-loss free-ship border"><span>
-            <img src="img/car.jpg" alt="" class=""></span>free shipping </p>
-			<p class="fat-loss free-ship"><span>
-            <img src="img/circle_tick.jpg" alt="" class=""></span> 180 day
-money back guarantee</p>
-<p class="cart-btn text-center">
-            <a href="javascript:void(0);" data-title="3" class="pro_href_6 addToCart"><img src="img/add_cart.jpg" alt="" class=""></a></p>
-<p class="text-center payment">
-            <img src="img/payment.jpg?v=1" alt="" class=""></p>
-
-			</div>
-		</div>
-	</div>
-	</div>
-	
-	
-	<div class="col-4 p3">
-	<div class="border_bottle">
-		<div class="bottle-center right_bottle">
-			<div class="bottle-top full-width text-center bottle-top-right">
-				<p class="pack-type text-center extra-bold">Most Popular</p>
-				<p class="supply text-center f30 extra-bold">3 month SUPPLY</p>
-			</div>
-			<p class="pack-pic">
-            <img src="img/product-3.png?v=1.1" alt="" class=" pro3"></p>
-			<div class="price-part bg_cover lazy">
-			<p class="price price-center"><span>$</span>39</p>
-			<p class="price-each">.00 <br><span>/each</span></p>
-			<!-- <p class="save_price source_sans_bold red">$299.91</p> -->
-			
-			</div>
-			<div class="center-content">
-			<p class="fat-loss free-ship border"><span>
-            <img src="img/car.jpg" alt="" class=""></span>free shipping </p>
-			<p class="fat-loss free-ship"><span>
-            <img src="img/circle_tick.jpg" alt="" class="" ></span> 180 day
-money back guarantee</p>
-<p class="cart-btn text-center">
-            <a href="javascript:void(0);" data-title="2" class="pro_href_3 addToCart"><img src="img/add_cart.jpg" alt="" class=""></a></p>
-<p class="text-center payment">
-            <img src="img/payment.jpg?v=1" alt="" class=""></p>
-
-			</div>
-		</div>
-	</div>
-	</div>
-	
-</div>
-</div>
-
-</div>
-					
-                    
-                </div><!-- end productRow -->
-            </div><!-- end featureApart -->
             <!-- end featured product section -->
 			
 			<!-- <div class="pr_short">
@@ -356,80 +304,43 @@ money back guarantee</p>
 <div class="col-12">
 <h2 class="faq_heading text-center mb-30">Frequently Asked Questions</h2>
 <div id="accordion-container">
-<h2 class="accordion-header"> 1. Who is GL Pure Advanced for?
+<h2 class="accordion-header"> Can I get my money back if I'm not happy?
 </h2>
 <div class="accordion-content">
-<p>GL Pure Advanced is for anyone who has to deal with erratic blood sugar.</p>
+<p>Absolutely. We've made it as simple as possible for you to try Reset BP with zero risk. If you're not happy for any reason simply contact our customer support desk, tell them what happened and they'll fulfill your request.</p>
 
-<p>Its ingredients are 100% safe and effective, utilizing natural herbs…</p>
- 
-<p>And can help with the movement of glucose to each cell.</p>
-
-<p>GL Pure Advanced could make a big difference in your life.</p>
-
-
+<p>Plus you'll have a full 180 days to try it out and make sure it's for you!</p>
 
 </div>
 
-<h2 class="accordion-header">2. Can you remind me about the guarantee you mentioned?</h2>
+<h2 class="accordion-header">How long should I take Reset BP before I start feeling noticeable results?</h2>
 <div class="accordion-content">
-<p>Of course!</p>
-
-<p>When you click the “Add to Cart” button below…</p>
-
-<p>And say “Yes” to Adsiato LLC products and improving your health…</p>
-
-<p>Your investment is backed by a 180 day money back guarantee…</p>
-
-<p>Meaning if for any reason within the next 6 months you decide our products are not an ideal fit for you…</p>
-
-<p>Simply call our friendly customer service team and we’ll refund your order…</p>
-
-<p>No questions asked.</p>
-
-<p>There’s no need to return the bottles of GL Pure Advanced either…</p>
-
-<p>You can keep them as our way of saying “thanks” for giving our products a try.</p>
-
-<p>Basically…</p>
-
-<p>There are no downsides at all…</p>
-
-<p>Your investment today is 100% Risk Free…</p>
-
-<p>And you have 180 days (6 months) to see if our products are a good fit for you.</p>
+<p>While you may start experiencing some results in the first few days, we suggest you give it at least a full 180 days. That allows your body to fully absorb and start optimizing the process of the ingredients working synergistically so your blood vessels can work in a more relaxed state.</p>
 
 </div>
 
 
-<h2 class="accordion-header">3. Will I be automatically billed every month for auto-shipments of GL Pure Advanced?</h2>
+<h2 class="accordion-header">I've tried other all-natural blood pressure formulas in the past which didn't work, how do I know this is different?</h2>
 <div class="accordion-content">
-<p>No, you will not be charged again unless you make another order yourself.</p>
+<p>Reset BP is not a concoction invented by a marketing team.</p>
 
-<p>We understand how annoying it can be to buy something online, only to be billed every month automatically.</p>
+<p>Every single one of our ingredients have been heavily tested and shown to work under stringent double-blind, placebo-controlled clinical study conditions.</p>
 
-<p>So we want to assure you that you will not have automatic, recurring charges on your account.</p>
+<p>You're getting some of the best herbs nature has to offer that support healthy blood pressure conditions from more than one angle.</p>
 
 </div>
 
 
-<h2 class="accordion-header">4. Okay, I’m ready! How can I get started?</h2>
+<h2 class="accordion-header">Is it Safe? Will it negatively interact with the medication I'm currently taking?</h2>
 <div class="accordion-content">
-<p>That’s easy!</p>
+<p>None of our clients have had any problems.</p>
+<p>While all of the ingredients inside Reset BP are natural and work synergistically, if you do have a delicate health condition you're worried about it would be wise to consult with your physician first.</p>
 
-<p>Just click the “Add to Cart” button you see above…</p>
+</div>
 
-<!--<p class="text-center"><a href="#"><img src="img/add_cart.jpg" alt="" class=""> </a></p>-->
-
-<p>And then pick the right package for you.</p>
-
-<p>Once you’ve placed your order, you will receive an email receipt confirming the transaction…</p>
-
-<p>And within the next 3-5 business days, you’ll have a carefully-delivered package of your order on your doorstep.</p>
-
-<p>And don’t forget, your investment is backed by our 180 day money back guarantee…</p>
-
-<p>So you have nothing to lose.</p>
+<h2 class="accordion-header">How do I take Reset BP?</h2>
+<div class="accordion-content">
+<p>We recommend taking one capsule twice a day for best results. Each capsule contains all the ingredients we mentioned above to address all 6 factors to keep your blood pressure healthy.</p>
 
 </div>
 
@@ -451,43 +362,42 @@ money back guarantee</p>
 
 <footer id="footer">
     <div class="wrapper">
-        <div class="ftrow clearfix">
-            <div class="widget">
-                <ul>
-                    <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
-					<li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
-					<li><a href="refunds.html">Refunds</a></li>
-					<li><a href="faq.html">FAQ</a></li>
-                </ul>
-            </div>
-            
-        </div>
-        <!--<p align='center'>Hormonal Harmony LLC: 66 W Flagler, Street STE 900, Miami, FL 33130</p><br>-->
-        <div class="bottomfooter clearfix">
-        	Adsiato Naturals
-			<br>
-			57 Pumpkin Delight Road, Milford, CT 06460
-			<br>
-			support@adsiatonaturals.com
-			<br>
-			1-855-548-4811
-			<br><br>
-			<p>The statements on this website and on these product labels have not been evaluated
-        	by the food and drug administration. These products are intended as a dietary supplement only.
-        	Products are not intended to diagnose, treat, cure or prevent any disease.
-        	Individual results may vary based on age, gender, body type, compliance, and other factors.
-        	All products are intended for use by adults over the age of 18. Consult a physician before taking any of our products,
-        	especially if you are pregnant, nursing, taking medication, diabetic, or have any medical condition.
-			<br><br>
-        	© 2020 Adsiato Naturals. All Rights Reserved
-			</p>
-            <img src="img/cards.png" class="cardbot" alt="Visa Mastercard Discover">
-        </div>
+      <div class="col-12">
+      	<div class="footer-col-wrp clearfix">
+      	  <div class="footer-col-lft">
+      	  	<div class="footer-logo">
+      	  	  <a href="#"><img src="images-new/Adsiato Naturals - Logo.png"></a>
+      	  	</div>
+      	  	<p>The statements on this website and on these product labels have not been evaluated by the food
+            and drug
+            administration. These products are intended as a dietary supplement only. Products are not
+            intended to
+            diagnose, treat, cure or prevent any disease. Individual results may vary based on age, gender,
+            body
+            type, compliance, and other factors. All products are intended for use by adults over the age
+            of 18.
+            Consult a physician before taking any of our products, especially if you are pregnant, nursing,
+            taking medication, diabetic, or have any medical condition.</p>
+      	  </div>
+      	  <div class="footer-col-rgt clearfix">
+      	  	<h3>Get in Touch</h3>
+      	  	<ul>
+      	  	  <li><span>Beardown Markerting LLC dba Baby Boomer <br> Biotech 3370 N Hayden Rd 123-601 <br> Scottodale AZ,85251,United States</span></li>
+      	  	  <li><span>Support: </span> <a href="tel:602-425-0838"> +1 602-425-0838</a></li>
+              <li><span>Email: </span> <a href="mailto:suooprt@babyboomerbiotech.com"> suooprt@babyboomerbiotech.com</a></li>
+              <li><span>1140 S Highbrook St,Akron,OH 44301, United <br> States</span></li>
+      	  	</ul>
+      	  </div>
+      	</div>
+      	<div class="footer-copy-right">
+      	  <p>&copy; 2021 Baby Boomer Biotech. All Rights Reserved.</p>
+      	</div>
+      </div>
     </div>
 </footer>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+
 
 <script src="script.js?v=1.0"></script>
 <script>
