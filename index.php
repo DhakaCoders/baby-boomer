@@ -29,12 +29,11 @@
                     <li><a href="store.html">STORE</a></li>
 					<li><a href="about-us.html">About</a></li> -->
                     <li><a href="contact-us.html">CONTACT</a></li>
-					<li class="tell_no"><a href="tell:844-000-00005">844-000-00005</a></li>
+					<li class="tell_no"><a href="tell:602-425-0838">1-602-425-0838</a></li>
 					<div class="headerRight">
                     <a href="cart.php" class="cartIcon cartbg">Cart</a>
                     <div class="phone">
-                        
-                        Tel: 1-855-548-4811
+                        Tel: 1-602-425-0838
                     </div>
                 </div>
                 </ul>
@@ -55,7 +54,7 @@
 	  </div>
   	  <div class="hm-banner-dsc">
   	     <h1 class="hm-banner-dsc-title">Top Quality, Research Backed Supplements</h1>
-  	    <div class="hm-scroll-btn" id="nav">
+  	    <div class="hm-scroll-btn">
   	      <a href="#section-1">Get it Now</a>
   	    </div>
       </div>
@@ -382,13 +381,15 @@
             taking medication, diabetic, or have any medical condition.</p>
       	  </div>
       	  <div class="footer-col-rgt clearfix">
+      	  	<div class="ftr-col-right">
       	  	<h3>Get in Touch</h3>
       	  	<ul>
-      	  	  <li><span>Beardown Markerting LLC dba Baby Boomer <br> Biotech 3370 N Hayden Rd 123-601 <br> Scottodale AZ,85251,United States</span></li>
       	  	  <li><span>Support: </span> <a href="tel:602-425-0838"> +1 602-425-0838</a></li>
               <li><span>Email: </span> <a href="mailto:suooprt@babyboomerbiotech.com"> suooprt@babyboomerbiotech.com</a></li>
-              <li><span>1140 S Highbrook St,Akron,OH 44301, United <br> States</span></li>
+      	  	  <li><span>Beardown Markerting LLC dba Baby Boomer Biotech <br>3370 N Hayden Rd 123-601 <br> Scottodale AZ, 85251, United States</span></li>
+              <li style="display: none;"><span>1140 S Highbrook St, Akron, OH 44301, United States</span></li>
       	  	</ul>
+      	  </div>
       	  </div>
       	</div>
       	<div class="footer-copy-right">
@@ -423,6 +424,12 @@
                     $(this).next().slideToggle().toggleClass('open-content');
                 }
             });
+$(".hm-scroll-btn a").click(function(e) {
+	e.preventDefault();
+    $('html, body').animate({
+        scrollTop: $("#section-1").offset().top
+    }, 800);
+});
             return false;
         });	
 			  </script>

@@ -86,9 +86,7 @@ $('#ouibounce-model .model').on('click', function(e) {
     e.stopPropagation();
 });
 
-
-
-$('#nav').onePageNav({
+$('#nav1').onePageNav({
   currentClass: 'current',
   currentId: 'href',
   changeHash: false,
@@ -109,8 +107,6 @@ $('#nav').onePageNav({
    /*alert($("#nav").attr("href","https://www.dhakacoders.com"));*/
 
    var addtext = $("hm-scroll-btn a").text();
-
-
 
   }
 });

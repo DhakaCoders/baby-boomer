@@ -9,7 +9,7 @@ $total_price = $_SESSION['total_price'];
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Cart - Adsiato Naturals</title>
+    <title>Cart - Baby Boomer Biotech</title>
     <meta name="robots" content="noindex,nofollow">
     <meta name="robots" content="noindex">
     <meta name="robots" content="nofollow">
@@ -17,6 +17,7 @@ $total_price = $_SESSION['total_price'];
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css?v=1.17" type="text/css"></head>
+    <link rel="stylesheet" href="css/style-new.css?v=10.8" type="text/css">
         <style>
         .remove{
             width: 10%;
@@ -42,12 +43,11 @@ $total_price = $_SESSION['total_price'];
                     <li><a href="store.html">STORE</a></li>
 					<li><a href="about-us.html">About</a></li> -->
                     <li><a href="contact-us.html">CONTACT</a></li>
-                    <li class="tell_no"><a href="tell:844-000-00005">844-000-00005</a></li>
+                    <li class="tell_no"><a href="tell:602-425-0838">1-602-425-0838</a></li>
 					<div class="headerRight">
                     <a href="cart.php" class="cartIcon cartbg">Cart</a>
                     <div class="phone">
-                        
-                        Tel:  1-855-548-4811
+                        Tel:  1-602-425-0838
                     </div>
                 </div>
                 </ul>
@@ -129,31 +129,39 @@ $total_price = $_SESSION['total_price'];
 
 <footer id="footer">
     <div class="wrapper">
-        <div class="ftrow clearfix">
-            <div class="widget">
-                <ul>
-                    <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
-					<li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
-					<li><a href="refunds.html">Refunds</a></li>
-					<li><a href="faq.html">FAQ</a></li>
-                </ul>
+      <div class="col-12">
+        <div class="footer-col-wrp clearfix">
+          <div class="footer-col-lft">
+            <div class="footer-logo">
+              <a href="#"><img src="images-new/Adsiato Naturals - Logo.png"></a>
             </div>
-            
+            <p>The statements on this website and on these product labels have not been evaluated by the food
+            and drug
+            administration. These products are intended as a dietary supplement only. Products are not
+            intended to
+            diagnose, treat, cure or prevent any disease. Individual results may vary based on age, gender,
+            body
+            type, compliance, and other factors. All products are intended for use by adults over the age
+            of 18.
+            Consult a physician before taking any of our products, especially if you are pregnant, nursing,
+            taking medication, diabetic, or have any medical condition.</p>
+          </div>
+          <div class="footer-col-rgt clearfix">
+            <div class="ftr-col-right">
+            <h3>Get in Touch</h3>
+            <ul>
+              <li><span>Support: </span> <a href="tel:602-425-0838"> +1 602-425-0838</a></li>
+              <li><span>Email: </span> <a href="mailto:suooprt@babyboomerbiotech.com"> suooprt@babyboomerbiotech.com</a></li>
+              <li><span>Beardown Markerting LLC dba Baby Boomer Biotech <br>3370 N Hayden Rd 123-601 <br> Scottodale AZ, 85251, United States</span></li>
+              <li style="display: none;"><span>1140 S Highbrook St, Akron, OH 44301, United States</span></li>
+            </ul>
+          </div>
+          </div>
         </div>
-        <!--<p align='center'>Hormonal Harmony LLC: 66 W Flagler, Street STE 900, Miami, FL 33130</p><br>-->
-        <div class="bottomfooter clearfix">
-        	<p>The statements on this website and on these product labels have not been evaluated
-        	by the food and drug administration. These products are intended as a dietary supplement only.
-        	Products are not intended to diagnose, treat, cure or prevent any disease.
-        	Individual results may vary based on age, gender, body type, compliance, and other factors.
-        	All products are intended for use by adults over the age of 18. Consult a physician before taking any of our products,
-        	especially if you are pregnant, nursing, taking medication, diabetic, or have any medical condition.
-			<br><br>
-        	© 2020 Adsiato Naturals. All Rights Reserved
-			</p>
-            <img src="img/cards.png" class="cardbot" alt="Visa Mastercard Discover">
+        <div class="footer-copy-right">
+          <p>&copy; 2021 Baby Boomer Biotech. All Rights Reserved.</p>
         </div>
+      </div>
     </div>
 </footer>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 
