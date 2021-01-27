@@ -16,9 +16,15 @@ banner-sec-wrp
     min-height: 355px;
     padding:60px 0;
 }
-.hm-banner-img{
-	width: 35%;
-	float: right;
+.banner-wrp{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.hm-banner-img {
+    width: 35%;
+    float: right;
+    order: 2;
 }
 .hm-about-img img,
 .hm-banner-img img{
@@ -27,9 +33,10 @@ banner-sec-wrp
 .hm-banner-dsc {
     width: 65%;
     float: left;
-    padding-top: 95px;
+    padding-top: 65px;
     padding-right: 40px;
-    padding-bottom: 50px;
+    padding-bottom: 65px;
+    order: 1;
 }
 .hm-banner-dsc-title{
 	display: block;
@@ -297,7 +304,7 @@ hm-about-sec-wrp
 ---------------------
 */
 .our-service-sec-wrp{
-	background:#dbdbdb;
+	background: #f6f6f6;
 	padding: 80px 0;
 }
 .our-service-box-wrp ul{
@@ -310,6 +317,7 @@ hm-about-sec-wrp
 }
 .our-service-box-inr{
 	background:#106735;
+	background: #b0b0b0;
 	padding: 20px 20px;
 	height: 120px;
 }
@@ -454,18 +462,19 @@ h2.accordion-header.active-header{
 	width: 100%;
 	max-width: 825px;
 }
-@media(max-width: 1499px){
-
+.pr-labels{
+  overflow: hidden;
+  border-radius: 10px;
 }
-
-@media(max-width: 1399px){
-
+body .logo {
+    margin-top: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+    vertical-align: top;
 }
-
-@media(max-width: 1299px){
-
+body .logo img {
+    width: 100px;
 }
-
 @media(max-width: 1199px){
 	.wrapper {
 	    padding: 0 20px;
@@ -624,6 +633,12 @@ h2.accordion-header.active-header{
 	#navigation ul li a,
 	.headerRight a{
 		color: #fff;
+	}
+	.hm-banner-img {
+	    order: 1;
+	}
+	.hm-banner-dsc {
+	    order: 2;
 	}
 }
 

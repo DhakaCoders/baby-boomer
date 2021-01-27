@@ -45,7 +45,8 @@ if (isset($_SESSION['p_price'])) {
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" href="css/style.css?v=1.5" type="text/css" media="screen">
     <link rel="stylesheet" href="css/media.css?v=12.5" type="text/css" media="screen">
-   <link rel='icon' href='img/HB-5-fav_32x32.gif' type='image/x-icon'/>
+    <link rel="stylesheet" href="css/style-new.css?v=10.8" type="text/css">
+    <link rel='icon' href='img/HB-5-fav_32x32.gif' type='image/x-icon'/>
     <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
@@ -156,29 +157,43 @@ if (isset($_SESSION['p_price'])) {
 </div>
 <!--=====container white section=====-->
 <!--=====footer section=====-->
-<div class="footer">
-    <div class="container wow fadeInUp animated" data-wow-delay="0.3s">
-        <ul class="foot_2">
-            <li><a target="_blank" href="faq.html">FAQ</a></li>
-            <li><a target="_blank" href="disclaimer.html">Disclaimer </a></li>
-            <li><a target="_blank" href="privacy-policy.html">Privacy</a></li>
-            <li><a target="_blank" href="terms-conditions.html">Terms and Conditions</a></li>
-            <li><a target="_blank" href="refunds.html">Refunds</a></li>
-            <li><a target="_blank" href="contact-us.html">Contact Us</a></li>
-        </ul>
-        <p class="disclaimer">
-            The products and the claims made about specific products on or through this site have not been evaluated by
-            the United States Food and Drug Administration and are not intended to diagnose, treat, cure or prevent
-            disease. The information provided on this site is for informational purposes only and is not intended as a
-            substitute for advice from your physician or other health care professional or any information contained on
-            or in any product label or packaging. You should not use the information on this site for diagnosis or
-            treatment of any health problem or for prescription of any medication or other treatment. You should consult
-            with a healthcare professional before starting any diet, exercise or supplementation program, before taking
-            any medication, or if you have or suspect you might have a health problem.
-        </p>
-        <p>© <span id='cyear'></span> Hormonal Harmony. All Rights Reserved.</p>
+<footer id="footer">
+    <div class="wrapper">
+      <div class="col-12">
+        <div class="footer-col-wrp clearfix">
+          <div class="footer-col-lft">
+            <div class="footer-logo">
+              <a href="#"><img src="images-new/Adsiato Naturals - Logo.png"></a>
+            </div>
+            <p>The statements on this website and on these product labels have not been evaluated by the food
+            and drug
+            administration. These products are intended as a dietary supplement only. Products are not
+            intended to
+            diagnose, treat, cure or prevent any disease. Individual results may vary based on age, gender,
+            body
+            type, compliance, and other factors. All products are intended for use by adults over the age
+            of 18.
+            Consult a physician before taking any of our products, especially if you are pregnant, nursing,
+            taking medication, diabetic, or have any medical condition.</p>
+          </div>
+          <div class="footer-col-rgt clearfix">
+            <div class="ftr-col-right">
+            <h3>Get in Touch</h3>
+            <ul>
+              <li><span>Support: </span> <a href="tel:602-425-0838"> +1 602-425-0838</a></li>
+              <li><span>Email: </span> <a href="mailto:suooprt@babyboomerbiotech.com"> suooprt@babyboomerbiotech.com</a></li>
+              <li><span>Beardown Markerting LLC dba Baby Boomer Biotech <br>3370 N Hayden Rd 123-601 <br> Scottodale AZ, 85251, United States</span></li>
+              <li style="display: none;"><span>1140 S Highbrook St, Akron, OH 44301, United States</span></li>
+            </ul>
+          </div>
+          </div>
+        </div>
+        <div class="footer-copy-right">
+          <p>&copy; 2021 Baby Boomer Biotech. All Rights Reserved.</p>
+        </div>
+      </div>
     </div>
-</div>
+</footer>
 
 <!--=====/footer section=====-->
 <script type="text/javascript" src="js/bootstrap.min.js"></script>

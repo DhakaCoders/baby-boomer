@@ -18,7 +18,7 @@
     <header id="mainHeader" class="clearfix">
         <div class="wrapper">
             <div class="topheader clearfix">
-                <a href="index.php" class="logo"><img src="img/Adsiato Naturals - Logo.png?v=1" alt=""></a>
+                <a href="index.php" class="logo"><img src="images-new/BoomerLogo.jpg?v=1" alt=""></a>
                 <!-- end headerRight -->
             </div><!-- end topheader -->
             <nav class="clearfix menu" id="navigation">
@@ -50,7 +50,7 @@
 	<div class="col-12">
 	 <div class="banner-wrp clearfix">
 	  <div class="hm-banner-img">
-	  	<img src="images-new/banner-img.png">
+	  	<img src="images-new/bb-3bottle.jpg">
 	  </div>
   	  <div class="hm-banner-dsc">
   	     <h1 class="hm-banner-dsc-title">Top Quality, Research Backed Supplements</h1>
@@ -69,11 +69,11 @@
 	  <div class="col-12">
 	  	<div class="hm-about-wrp clearfix">
 	  	  <div class="hm-about-img">
-	  	  	<img src="images-new/banner-img.png">
+	  	  	<img src="images-new/bb-3bottle.jpg">
 	  	  </div>
 	  	  <div class="hm-about-dsc">
-	  	  	<h2 class="hm-about-dsc-title">What is GL Pure Advanced All About?</h2>
-			<p>GL Pure Advanced is an all-natural herbal blood sugar support supplement. It can be helpful for people dealing with erratic blood sugar, and is safe due to its natural herbal ingredients.</p>
+	  	  	<h2 class="hm-about-dsc-title">What is Baby Boomer Reset BP All About?</h2>
+			<p>Reset BP is an all-natural herbal blood pressure support supplement. It is safe due to its natural herbal ingredients.</p>
 			<p>All Baby Boomer Biotech LLC supplements are manufactured using GMP (Good Manufacturing Practices). A combination of both scheduled and surprise inspections are conducted by the quality assurance staff over various aspects of the manufacturing process. This helps to maintain ideal quality, strength, and purity for both the raw ingredients and finished supplements.</p>
 	  	  </div>
 	  	</div>
@@ -86,7 +86,7 @@
 	  <div class="col-12">
 	  	<div class="our-flagship-head">
 	  	  <h2 class="our-flagship-head-title">Our Flagship Product</h2>
-	  	  <p>iGenics is a special formula made with 9 ingredients. These ingredients are natural, well-researched, made in the USA, and meet GMP and FDA guidelines.</p>
+	  	  <p>Baby Boomer Reset BP is a special formula made with natural ingredients. These ingredients are well-researched, made in the USA, and meet GMP and FDA guidelines.</p>
 	  	</div>
 	  	<div class="our-flagship-wrp clearfix">
 	  	  <div class="our-flagship-img">
@@ -102,7 +102,7 @@
                 <li>
                   <label>
                     Qty 6 (180-day Supply) 
-                    <input type="checkbox">
+                    <input type="radio" name="bbb" value="6">
                     <span class="checkmark"></span>
                   </label>
                 </li>
@@ -110,7 +110,7 @@
                 <li>
                   <label>
                     Qty 3 (90-day Supply)
-                    <input type="checkbox">
+                    <input type="radio" name="bbb" value="3">
                     <span class="checkmark"></span>
                   </label>
                 </li>
@@ -118,7 +118,7 @@
                 <li>
                   <label>
                     Qty 1 (30-day Supply)
-                    <input type="checkbox">
+                    <input type="radio" name="bbb" value="1">
                     <span class="checkmark"></span>
                   </label>
                 </li>
@@ -199,8 +199,9 @@
 			<div class="row">
 			<div class="col-12">
 			<h2>Product Label & Ingredient</h2>
-			<img src="img/GL Pure Advanced - Label.jpg" alt="" class="label_img">
-			
+			<div class="pr-labels">
+				<img src="images-new/BoomerLabel-1.jpg" alt="" class="label_img">
+			</div>
 			</div>
 			</div>
 			</div>
@@ -294,7 +295,7 @@
 			
 			<div class="guarante_sec">
 			<div class="guarante_inner text-center">
-			<img src="img/seal.png"><p>All purchases from GL Pure Advanced are backed by a <strong>180-Day, Money Back Guarantee</strong>. That’s a full 6 months to discover if GL Pure Advanced is right for you.  If for any reason GL Pure Advanced doesn’t live up to its name, then just call our friendly customer service team to receive a full refund. No questions asked! No returns necessary. </p>
+			<img src="img/seal.png"><p>All purchases from Baby Boomer Reset BP are backed by a <strong>180-Day, Money Back Guarantee</strong>. That’s a full 6 months to discover if Baby Boomer Reset BP is right for you.  If for any reason Baby Boomer Reset BP doesn’t live up to its name, then just call our friendly customer service team to receive a full refund. No questions asked! No returns necessary. </p>
 			</div>
 			</div>
          
@@ -305,47 +306,36 @@
 <div class="col-12">
 <h2 class="faq_heading text-center mb-30">Frequently Asked Questions</h2>
 <div id="accordion-container">
-<h2 class="accordion-header"> Can I get my money back if I'm not happy?
-</h2>
-<div class="accordion-content">
-<p>Absolutely. We've made it as simple as possible for you to try Reset BP with zero risk. If you're not happy for any reason simply contact our customer support desk, tell them what happened and they'll fulfill your request.</p>
+	<h2 class="accordion-header"> Can I get my money back if I'm not happy?</h2>
+	<div class="accordion-content">
+	<p>Absolutely. We've made it as simple as possible for you to try Reset BP with zero risk. If you're not happy for any reason simply contact our customer support desk, tell them what happened and they'll fulfill your request.</p>
+	<p>Plus you'll have a full 180 days to try it out and make sure it's for you!</p>
+	</div>
 
-<p>Plus you'll have a full 180 days to try it out and make sure it's for you!</p>
-
-</div>
-
-<h2 class="accordion-header">How long should I take Reset BP before I start feeling noticeable results?</h2>
-<div class="accordion-content">
-<p>While you may start experiencing some results in the first few days, we suggest you give it at least a full 180 days. That allows your body to fully absorb and start optimizing the process of the ingredients working synergistically so your blood vessels can work in a more relaxed state.</p>
-
-</div>
+	<h2 class="accordion-header">How long should I take Reset BP before I start feeling noticeable results?</h2>
+	<div class="accordion-content">
+	<p>While you may start experiencing some results in the first few days, we suggest you give it at least a full 180 days. That allows your body to fully absorb and start optimizing the process of the ingredients working synergistically so your blood vessels can work in a more relaxed state.</p>
+	</div>
 
 
-<h2 class="accordion-header">I've tried other all-natural blood pressure formulas in the past which didn't work, how do I know this is different?</h2>
-<div class="accordion-content">
-<p>Reset BP is not a concoction invented by a marketing team.</p>
-
-<p>Every single one of our ingredients have been heavily tested and shown to work under stringent double-blind, placebo-controlled clinical study conditions.</p>
-
-<p>You're getting some of the best herbs nature has to offer that support healthy blood pressure conditions from more than one angle.</p>
-
-</div>
+	<h2 class="accordion-header">I've tried other all-natural blood pressure formulas in the past which didn't work, how do I know this is different?</h2>
+	<div class="accordion-content">
+	<p>Reset BP is not a concoction invented by a marketing team.</p>
+	<p>Every single one of our ingredients have been heavily tested and shown to work under stringent double-blind, placebo-controlled clinical study conditions.</p>
+	<p>You're getting some of the best herbs nature has to offer that support healthy blood pressure conditions from more than one angle.</p>
+	</div>
 
 
-<h2 class="accordion-header">Is it Safe? Will it negatively interact with the medication I'm currently taking?</h2>
-<div class="accordion-content">
-<p>None of our clients have had any problems.</p>
-<p>While all of the ingredients inside Reset BP are natural and work synergistically, if you do have a delicate health condition you're worried about it would be wise to consult with your physician first.</p>
+	<h2 class="accordion-header">Is it Safe? Will it negatively interact with the medication I'm currently taking?</h2>
+	<div class="accordion-content">
+	<p>None of our clients have had any problems.</p>
+	<p>While all of the ingredients inside Reset BP are natural and work synergistically, if you do have a delicate health condition you're worried about it would be wise to consult with your physician first.</p>
+	</div>
 
-</div>
-
-<h2 class="accordion-header">How do I take Reset BP?</h2>
-<div class="accordion-content">
-<p>We recommend taking one capsule twice a day for best results. Each capsule contains all the ingredients we mentioned above to address all 6 factors to keep your blood pressure healthy.</p>
-
-</div>
-
-
+	<h2 class="accordion-header">How do I take Reset BP?</h2>
+	<div class="accordion-content">
+	<p>We recommend taking one capsule twice a day for best results. Each capsule contains all the ingredients we mentioned above to address all 6 factors to keep your blood pressure healthy.</p>
+	</div>
 </div>
 </div></div>
 	</div>

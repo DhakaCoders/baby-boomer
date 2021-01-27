@@ -78,13 +78,15 @@ if ($errorMessage) {
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css?v=1.50" type="text/css"></head>
+    <link rel="stylesheet" href="style.css?v=1.50" type="text/css">
+    <link rel="stylesheet" href="css/style-new.css?v=10.8" type="text/css">
+</head>
 	<body>
 <!-- header section -->
     <header id="mainHeader" class="clearfix">
         <div class="wrapper">
             <div class="topheader clearfix">
-                <a href="index.php" class="logo"><img src="img/Adsiato Naturals - Logo.png?v=1" alt=""></a>
+                <a href="index.php" class="logo"><img src="images-new/BoomerLogo.jpg?v=1" alt=""></a>
                 <!-- end headerRight -->
             </div><!-- end topheader -->
             <nav class="clearfix menu" id="navigation">
@@ -99,12 +101,12 @@ if ($errorMessage) {
                     <li><a href="store.html">STORE</a></li>
 					<li><a href="about-us.html">About</a></li> -->
                     <li><a href="contact-us.html">CONTACT</a></li>
-                    <li class="tell_no"><a href="tell:1-855-548-4811">1-855-548-4811</a></li>
+                    <li class="tell_no"><a href="tell:1-602-425-0838">1-602-425-0838</a></li>
 					<div class="headerRight">
                     <a href="cart.php" class="cartIcon cartbg">Cart</a>
                     <div class="phone">
                         
-                        Tel: 1-855-548-4811
+                        Tel: 1-602-425-0838
                     </div>
                 </div>
                 </ul>
@@ -484,14 +486,14 @@ if ($errorMessage) {
 			
 			<div class="white_content_box full-width mb-30">
 				<p class="pb-22">We offer a 180-Day Money Back warranty on all of our products purchased directly through our website. Your guarantee comes into effect on the day your product is shipped from our distribution center. The guarantee will expire 180-day after your shipped date. The Customer will be responsible for all return shipping charges acquired. We require that all Returns have a tracking number. The tracking number is very important in determining the delivery of your Return. No Return Authorization Number is needed. Simply send your Products to<br/>
-ATTN: Returns Department – Adsiato Naturals<br/>
-57 Pumpkin Delight Road,<br/>
-Milford, CT 06460<br/>
+ATTN: Returns Department – BabyBoomer BioTech<br/>
+3370 N Hayden Rd 123-601,<br/>
+Scottodale AZ, 85251, United States<br/>
 If you have any questions regarding Returns, please contact our Customer Service Department at
-<br/>1-855-548-4811<br/>
+<br/>1-602-425-0838<br/>
 6 am – 6 pm PST MON – FRI<br/>
 6 am – 4 pm PST SAT – SUN</p>
-<p>Your purchase today will appear on your statement as "GL Pure Advanced". <p>
+<p>Your purchase today will appear on your statement as "BabyBoomer BioTech". <p>
 			</div>
 		</div>
 	</div>
@@ -528,7 +530,7 @@ If you have any questions regarding Returns, please contact our Customer Service
  </button>			
 				
 				
-		<div = align='center'><p class="statement_details">Your purchase today will appear on your statement as "GL Pure Advanced". <p></div>		
+		<div = align='center'><p class="statement_details">Your purchase today will appear on your statement as "BabyBoomer BioTech". <p></div>		
 				
 				
 				
@@ -545,31 +547,39 @@ If you have any questions regarding Returns, please contact our Customer Service
 
 <footer id="footer">
     <div class="wrapper">
-        <div class="ftrow clearfix">
-            <div class="widget">
-                <ul>
-                    <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
-					<li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
-					<li><a href="refunds.html">Refunds</a></li>
-					<li><a href="faq.html">FAQ</a></li>
-                </ul>
+      <div class="col-12">
+        <div class="footer-col-wrp clearfix">
+          <div class="footer-col-lft">
+            <div class="footer-logo">
+              <a href="#"><img src="images-new/Adsiato Naturals - Logo.png"></a>
             </div>
-            
+            <p>The statements on this website and on these product labels have not been evaluated by the food
+            and drug
+            administration. These products are intended as a dietary supplement only. Products are not
+            intended to
+            diagnose, treat, cure or prevent any disease. Individual results may vary based on age, gender,
+            body
+            type, compliance, and other factors. All products are intended for use by adults over the age
+            of 18.
+            Consult a physician before taking any of our products, especially if you are pregnant, nursing,
+            taking medication, diabetic, or have any medical condition.</p>
+          </div>
+          <div class="footer-col-rgt clearfix">
+            <div class="ftr-col-right">
+            <h3>Get in Touch</h3>
+            <ul>
+              <li><span>Support: </span> <a href="tel:602-425-0838"> +1 602-425-0838</a></li>
+              <li><span>Email: </span> <a href="mailto:suooprt@babyboomerbiotech.com"> suooprt@babyboomerbiotech.com</a></li>
+              <li><span>Beardown Markerting LLC dba Baby Boomer Biotech <br>3370 N Hayden Rd 123-601 <br> Scottodale AZ, 85251, United States</span></li>
+              <li style="display: none;"><span>1140 S Highbrook St, Akron, OH 44301, United States</span></li>
+            </ul>
+          </div>
+          </div>
         </div>
-        <!--<p align='center'>Hormonal Harmony LLC: 66 W Flagler, Street STE 900, Miami, FL 33130</p><br>-->
-        <div class="bottomfooter clearfix">
-        	<p>The statements on this website and on these product labels have not been evaluated
-        	by the food and drug administration. These products are intended as a dietary supplement only.
-        	Products are not intended to diagnose, treat, cure or prevent any disease.
-        	Individual results may vary based on age, gender, body type, compliance, and other factors.
-        	All products are intended for use by adults over the age of 18. Consult a physician before taking any of our products,
-        	especially if you are pregnant, nursing, taking medication, diabetic, or have any medical condition.
-			<br><br>
-        	© 2020 Adsiato Naturals. All Rights Reserved
-			</p>
-            <img src="img/cards.png" class="cardbot" alt="Visa Mastercard Discover">
+        <div class="footer-copy-right">
+          <p>&copy; 2021 Baby Boomer Biotech. All Rights Reserved.</p>
         </div>
+      </div>
     </div>
 </footer>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 

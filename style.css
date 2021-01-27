@@ -634,7 +634,7 @@ Inner page Section
 */
 .innerpages{ padding: 40px 0px 0;}
 .innerpages h1{font-size: 23px; line-height: 30px; color: #535252; border-bottom: solid 1px #d0d0d0; padding-bottom: 15px; margin-bottom: 20px;}
-.innerpages h2{font-size: 18px; font-weight: 700; color: #535252; text-align: center; padding-bottom: 20px; background: url(img/two-boder.png) repeat-x 100% 30%;}
+.innerpages h2:not(.accordion-header){font-size: 18px; font-weight: 700; color: #535252; text-align: center; padding-bottom: 20px; background: url(img/two-boder.png) repeat-x 100% 30%;}
 .innerpages h2 span{background-color: #fff; padding: 0 30px;}
 .innerpages h3{font-size: 15px; line-height: 22px; color: #0f75bc; padding-bottom: 20px;
     text-align: center;}
